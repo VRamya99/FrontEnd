@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center mt-5">
+    <p class="h4">Dogs Breed and Details</p>
+  </div>
+  
+  <div class="container d-flex justify-content-center mt-4">
+    <div class="table-responsive w-75">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Breed Name</th>
+            <th>Breed Group</th>
+            <th>Life Span</th>
+            <th>Temperament</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of pageData; let i=index">
+            <td>{{currentPage*pageSize+i+1 }}</td>
+            <td>{{ t.name }}</td>
+            <td>{{ t.breed_group }}</td>
+            <td>{{ t.life_span }}</td>
+            <td>{{ t.temperament }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+ <mat-paginator class="custom-paginator" [length]="totalItems" [pageSize]="pageSize" [pageSizeOptions]="[5,10,15]" (page)="onPageChange($event)"></mat-paginator>
+  

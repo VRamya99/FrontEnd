@@ -1,0 +1,17 @@
+<!-- Sidebar Template -->
+<div class="sidebar" [class.collapsed]="isCollapsed">
+  <button class="toggle-btn" (click)="toggleSidebar()">
+    ☰
+  </button>
+  <nav class="sidebar-menu" *ngIf="!isCollapsed">
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/about">About</a></li>
+      <li><a routerLink="/services">Services</a></li>
+      <li><a routerLink="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

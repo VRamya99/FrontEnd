@@ -1,0 +1,25 @@
+/* Main layout styles */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the footer is pushed to the bottom */
+  }
+  
+  .main-content {
+    flex: 1;
+    margin-left: 250px; 
+    padding: 20px;
+    transition: margin-left 0.3s;
+  }
+  
+  @media (max-width: 768px) {
+    .main-content {
+      margin-left: 0; 
+    }
+  }
+  

@@ -1,0 +1,75 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .container {
+    display: flex;
+    flex: 1;
+  }
+  
+  app-header {
+    flex: 0 0 auto;
+  }
+  
+  app-sidebar {
+    flex: 0 0 250px; /* Default width for sidebar */
+    background-color: #333;
+    color: white;
+    transition: width 0.3s;
+  }
+  
+  app-sidebar.collapsed {
+    flex: 0 0 70px; /* Collapsed width for sidebar */
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    transition: margin-left 0.3s;
+  }
+  
+  app-footer {
+    flex: 0 0 auto;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    app-sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    app-sidebar.collapsed {
+      width: 0;
+    }
+  
+    .main-content {
+      margin-left: 0;
+    }
+  
+    .toggle-btn {
+      display: block;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #333;
+      color: white;
+      border: none;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+  

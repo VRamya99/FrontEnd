@@ -1,0 +1,64 @@
+  
+<div class="container d-flex align-items-center justify-content-center vh-100">
+    
+    <form [formGroup]="userForm" class="form-container p-4 rounded shadow bg-light  w-100">
+        <div class="row justify-content-center">
+            <div class="col text-center">
+                <h2 class="form-title">User Form</h2>
+            </div>
+        </div>
+      <div class="form-group">
+        <label for="name">Enter your name</label>
+        <input id="name" type="text" formControlName="name" class="form-control" placeholder="Name">
+        <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="text-danger mt-2">
+          <div *ngIf="userForm.get('name')?.errors?.['required']">
+            Name should not be empty.
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="email">Enter your email</label>
+        <input id="email" type="email" formControlName="email" class="form-control" placeholder="Email">
+        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="text-danger mt-2">
+          <div *ngIf="userForm.get('email')?.errors?.['required']">
+            Email should not be empty.
+          </div>
+          <div *ngIf="userForm.get('email')?.errors?.['email']">
+            Email should be a valid email format.
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="password">Enter your Password</label>
+        <input id="password" type="password" formControlName="password" class="form-control" placeholder="Password">
+        <div *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched" class="text-danger mt-2">
+          <div *ngIf="userForm.get('password')?.errors?.['required']">
+            Password should not be empty.
+          </div>
+          <div *ngIf="userForm.get('password')?.errors?.['minlength']">
+            Password should be at least 8 characters long.
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group mt-3">
+        <label for="confirmPassword">Re-enter your Password</label>
+        <input id="confirmPassword" type="password" formControlName="confirmPassword" class="form-control" placeholder="Confirm Password">
+        <div class="text-danger mt-2">
+           
+            <div *ngIf="userForm.get('confirmPassword')?.errors?.['required'] && userForm.get('confirmPassword')?.touched">
+                Confirm Password should not be empty.
+            </div>
+            <div *ngIf="!userForm.get('confirmPassword')?.errors?.['required'] && userForm.errors?.['passwordMismatch']">
+                Confirm Password should match the Password field.
+            </div>
+        </div>
+    </div>
+    
+  
+      <button (click)="onSubmit()" type="submit" [disabled]="userForm.invalid" class="btn btn-danger btn-block mt-4">Submit</button>
+    </form>
+  </div>
+  
