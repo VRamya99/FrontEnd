@@ -1,2 +1,2 @@
 # FrontEnd
-Contains all angular quetions
+Contains all angular questions
